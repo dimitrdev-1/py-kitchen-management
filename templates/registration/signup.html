@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm form-card my-4">
+        <div class="card-body p-4">
+          <h3 class="card-title text-center mb-4 fw-bold text-dark">Cook Registration</h3>
+          <form method="post" class="django-custom-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success w-100 mt-3 fw-semibold">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+[flake8]
+extend-ignore = E203
+exclude =
+    .git,
+    __pycache__,
+    .venv/
+    .idea/
+    env,
+    venv,
+    migrations,
+    manage.py,
+    config/settings.py,
+    kitchen/urls.py,
+    users/urls.py,
+    config/*
+max-line-length = 79
+max-complexity = 10

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="card shadow-sm border-0 form-card p-4 bg-white rounded-3">
+    <div class="d-flex justify-content-between align-items-start border-bottom pb-3 mb-4">
+      <div>
+        <span class="text-uppercase text-muted fw-bold small tracking-wider">{{ dish.dish_type.name }}</span>
+        <h1 class="display-6 mt-1 mb-0 fw-bold text-dark">{{ dish.name }}</h1>
+      </div>
+      <span class="badge bg-success p-2.5 fs-5 fw-bold">{{ dish.price }} USD</span>
+    </div>
+
+    <h5 class="fw-bold text-secondary mb-2">Recipe Description</h5>
+    <p class="fs-5 text-dark mb-4 bg-light p-3 rounded-3 border-start border-4 border-primary">{{ dish.description }}</p>
+
+    <h5 class="fw-bold text-secondary mb-3">Assigned Cooks</h5>
+    <div class="list-group mb-4 rounded-3 shadow-sm" style="max-width: 600px;">
+      {% for cook in dish.cooks.all %}
+        <a href="{% url 'kitchen:cook-detail' pk=cook.id %}" class="list-group-item list-group-item-action py-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <span class="fw-bold text-dark">{{ cook.first_name }} {{ cook.last_name }}</span>
+              <span class="text-muted ms-2">@{{ cook.username }}</span>
+            </div>
+            <span class="badge bg-info text-dark fw-semibold">{{ cook.years_of_experience }} yrs exp</span>
+          </div>
+        </a>
+      {% empty %}
+        <div class="list-group-item list-group-item-light text-muted py-3">No cooks are currently assigned to this
+          dish.
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="d-flex gap-2 border-top pt-4">
+      <a href="{% url 'kitchen:dish-update' pk=dish.id %}" class="btn btn-warning px-4 fw-semibold">Edit Details</a>
+      <a href="{% url 'kitchen:dish-list' %}" class="btn btn-outline-secondary px-4 fw-semibold">Back to Menu</a>
+    </div>
+  </div>
+{% endblock %}

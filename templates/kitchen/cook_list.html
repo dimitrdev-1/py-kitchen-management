@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2 class="fw-bold text-dark mb-4">Kitchen Crew</h2>
+  <div class="row">
+    {% for cook in cook_list %}
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm border-0 form-card h-100 rounded-3">
+          <div class="card-body p-4 d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="fw-bold mb-1"><a href="{% url 'kitchen:cook-detail' pk=cook.id %}"
+                                          class="text-primary text-decoration-none">@{{ cook.username }}</a></h5>
+              <h6 class="text-secondary mb-3 fw-medium">{{ cook.first_name }} {{ cook.last_name }}</h6>
+              <p class="text-dark mb-0 fs-6">Experience: <span
+                  class="badge bg-info text-dark px-2 py-1 fw-semibold">{{ cook.years_of_experience }} years</span></p>
+            </div>
+            <div class="mt-4">
+              <a href="{% url 'kitchen:cook-detail' pk=cook.id %}"
+                 class="btn btn-sm btn-outline-primary w-100 fw-semibold py-2">View Assigned Processes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <div class="col-12 text-center py-4 text-muted">No cooks registered in the system.</div>
+    {% endfor %}
+  </div>
+  {% include "includes/pagination.html" %}
+{% endblock %}

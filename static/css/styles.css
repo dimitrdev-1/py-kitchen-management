@@ -1,0 +1,585 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:wght@700&display=swap');
+
+/* ── TOKENS ── */
+:root {
+    --km-bg: #0f0f0f;
+    --km-surface: #1a1a1a;
+    --km-surface-2: #222222;
+    --km-border: #2e2e2e;
+    --km-text: #f0ede8;
+    --km-text-muted: #888888;
+    --km-accent: #e86b2e;
+    --km-accent-hover: #f07d3f;
+    --km-blue: #3b82f6;
+    --km-green: #22c55e;
+    --km-amber: #f59e0b;
+    --km-red: #ef4444;
+    --km-font-display: 'Playfair Display', Georgia, serif;
+    --km-font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --km-radius: 10px;
+    --km-radius-lg: 16px;
+    --km-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    --km-transition: 0.2s ease;
+}
+
+/* ── BASE ── */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--km-font-body) !important;
+    background-color: var(--km-bg) !important;
+    color: var(--km-text) !important;
+    font-weight: 300;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main.container {
+    flex: 1;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--km-font-body);
+    color: var(--km-text);
+}
+
+a {
+    color: var(--km-text);
+}
+
+a:hover {
+    color: var(--km-accent);
+}
+
+/* ── BOOTSTRAP OVERRIDES — NAVBAR ── */
+.navbar.bg-dark,
+.navbar-dark {
+    background-color: var(--km-surface) !important;
+    border-bottom: 1px solid var(--km-border);
+}
+
+.navbar-brand {
+    font-family: var(--km-font-display);
+    font-size: 1.3rem;
+    color: var(--km-text) !important;
+    letter-spacing: 0.01em;
+}
+
+.navbar-brand::before {
+    content: "🍳 ";
+}
+
+.nav-link {
+    color: var(--km-text-muted) !important;
+    font-size: 0.875rem;
+    border-radius: var(--km-radius);
+    padding: 0.45rem 0.75rem !important;
+    transition: color var(--km-transition), background var(--km-transition);
+}
+
+.nav-link:hover {
+    color: var(--km-text) !important;
+    background: var(--km-surface-2);
+}
+
+/* ── BOOTSTRAP OVERRIDES — BUTTONS ── */
+.btn {
+    font-family: var(--km-font-body);
+    font-weight: 500;
+    border-radius: var(--km-radius);
+    transition: all var(--km-transition);
+    font-size: 0.875rem;
+    padding: 0.5rem 1.1rem;
+}
+
+.btn-primary {
+    background: var(--km-accent);
+    border-color: var(--km-accent);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--km-accent-hover);
+    border-color: var(--km-accent-hover);
+    color: #fff;
+}
+
+.btn-success {
+    background: #16a34a;
+    border-color: #16a34a;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background: #15803d;
+    border-color: #15803d;
+    color: #fff;
+}
+
+.btn-warning {
+    background: var(--km-amber);
+    border-color: var(--km-amber);
+    color: #0f0f0f;
+}
+
+.btn-warning:hover {
+    background: #d97706;
+    border-color: #d97706;
+    color: #0f0f0f;
+}
+
+.btn-danger {
+    background: var(--km-red);
+    border-color: var(--km-red);
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+    border-color: #dc2626;
+    color: #fff;
+}
+
+.btn-secondary {
+    background: var(--km-surface-2);
+    border-color: var(--km-border);
+    color: var(--km-text);
+}
+
+.btn-secondary:hover {
+    background: #2a2a2a;
+    border-color: #444;
+    color: var(--km-text);
+}
+
+.btn-light {
+    background: var(--km-surface-2);
+    border-color: var(--km-border);
+    color: var(--km-text);
+}
+
+.btn-light:hover {
+    background: #2a2a2a;
+    color: var(--km-text);
+}
+
+.btn-outline-primary {
+    border-color: var(--km-accent);
+    color: var(--km-accent);
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background: var(--km-accent);
+    color: #fff;
+    border-color: var(--km-accent);
+}
+
+.btn-outline-success {
+    border-color: var(--km-green);
+    color: var(--km-green);
+    background: transparent;
+}
+
+.btn-outline-success:hover {
+    background: var(--km-green);
+    color: #0f0f0f;
+    border-color: var(--km-green);
+}
+
+.btn-outline-warning {
+    border-color: var(--km-amber);
+    color: var(--km-amber);
+    background: transparent;
+}
+
+.btn-outline-warning:hover {
+    background: var(--km-amber);
+    color: #0f0f0f;
+    border-color: var(--km-amber);
+}
+
+.btn-outline-danger {
+    border-color: var(--km-red);
+    color: var(--km-red);
+    background: transparent;
+}
+
+.btn-outline-danger:hover {
+    background: var(--km-red);
+    color: #fff;
+    border-color: var(--km-red);
+}
+
+.btn-outline-secondary {
+    border-color: var(--km-border);
+    color: var(--km-text-muted);
+    background: transparent;
+}
+
+.btn-outline-secondary:hover {
+    background: var(--km-surface-2);
+    color: var(--km-text);
+    border-color: #444;
+}
+
+.btn-outline-light {
+    border-color: rgba(240, 237, 232, 0.35);
+    color: var(--km-text);
+    background: transparent;
+}
+
+.btn-outline-light:hover {
+    background: var(--km-surface-2);
+    color: var(--km-text);
+}
+
+/* ── BOOTSTRAP OVERRIDES — CARDS ── */
+.card {
+    background-color: var(--km-surface) !important;
+    border: 1px solid var(--km-border) !important;
+    border-radius: var(--km-radius-lg) !important;
+    color: var(--km-text);
+}
+
+.card-title {
+    color: var(--km-text);
+    font-weight: 600;
+}
+
+.form-card {
+    background: var(--km-surface);
+    border: 1px solid var(--km-border);
+}
+
+/* ── BOOTSTRAP OVERRIDES — TABLES ── */
+.table {
+    color: var(--km-text);
+    border-color: var(--km-border);
+    font-size: 0.9rem;
+}
+
+.table-responsive.bg-white,
+.table-responsive {
+    background: var(--km-surface) !important;
+    border: 1px solid var(--km-border);
+    border-radius: var(--km-radius-lg);
+}
+
+.table-light, thead.table-light, .table thead.table-light th {
+    background-color: var(--km-surface-2) !important;
+    color: var(--km-text-muted) !important;
+    border-color: var(--km-border) !important;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.table > :not(caption) > * > * {
+    background-color: transparent;
+    border-bottom-color: var(--km-border);
+    color: var(--km-text);
+}
+
+.table-hover > tbody > tr:hover > * {
+    background-color: var(--km-surface-2);
+    color: var(--km-text);
+}
+
+/* ── BOOTSTRAP OVERRIDES — FORMS ── */
+.form-control,
+.form-select,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    background-color: var(--km-bg) !important;
+    border: 1px solid var(--km-border) !important;
+    border-radius: var(--km-radius) !important;
+    color: var(--km-text) !important;
+    font-family: var(--km-font-body);
+    font-size: 0.9rem;
+}
+
+.form-control:focus,
+.form-select:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--km-accent) !important;
+    box-shadow: 0 0 0 3px rgba(232, 107, 46, 0.15) !important;
+    background-color: var(--km-bg) !important;
+    color: var(--km-text) !important;
+    outline: none;
+}
+
+/* Django auto-rendered form paragraphs */
+.django-custom-form p {
+    margin-bottom: 1rem;
+}
+
+.django-custom-form label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--km-text-muted);
+    margin-bottom: 0.4rem;
+}
+
+.django-custom-form input[type="text"],
+.django-custom-form input[type="email"],
+.django-custom-form input[type="password"],
+.django-custom-form input[type="number"],
+.django-custom-form select,
+.django-custom-form textarea {
+    width: 100%;
+    display: block;
+    padding: 0.65rem 0.9rem;
+}
+
+.django-custom-form select option {
+    background: var(--km-surface);
+    color: var(--km-text);
+}
+
+.django-custom-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.django-custom-form .helptext {
+    font-size: 0.78rem;
+    color: var(--km-text-muted);
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.django-custom-form ul.errorlist {
+    list-style: none;
+    padding: 0;
+    margin: 0.25rem 0 0;
+    font-size: 0.8rem;
+    color: var(--km-red);
+}
+
+/* Checkbox in forms (e.g. cooks multiselect) */
+.django-custom-form input[type="checkbox"] {
+    width: auto;
+    accent-color: var(--km-accent);
+    margin-right: 0.4rem;
+}
+
+/* ── BOOTSTRAP OVERRIDES — BADGES ── */
+.badge {
+    font-weight: 500;
+    font-size: 0.72rem;
+    border-radius: 99px;
+    padding: 0.3em 0.75em;
+}
+
+.bg-secondary {
+    background-color: var(--km-surface-2) !important;
+    color: var(--km-text-muted) !important;
+    border: 1px solid var(--km-border);
+}
+
+.bg-info {
+    background-color: rgba(59, 130, 246, 0.15) !important;
+    color: var(--km-blue) !important;
+}
+
+.bg-success {
+    background-color: rgba(34, 197, 94, 0.15) !important;
+    color: var(--km-green) !important;
+}
+
+.bg-warning {
+    background-color: rgba(245, 158, 11, 0.15) !important;
+    color: var(--km-amber) !important;
+}
+
+.bg-danger {
+    background-color: rgba(239, 68, 68, 0.15) !important;
+    color: var(--km-red) !important;
+}
+
+/* ── BOOTSTRAP OVERRIDES — ALERTS ── */
+.alert {
+    border-radius: var(--km-radius);
+    background: var(--km-surface);
+    border: 1px solid var(--km-border);
+    color: var(--km-text);
+    font-size: 0.9rem;
+}
+
+.alert-info {
+    border-color: var(--km-blue);
+    color: var(--km-blue);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.alert-warning {
+    border-color: var(--km-amber);
+    color: var(--km-amber);
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.alert-danger {
+    border-color: var(--km-red);
+    color: var(--km-red);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.alert-success {
+    border-color: var(--km-green);
+    color: var(--km-green);
+    background: rgba(34, 197, 94, 0.1);
+}
+
+/* ── BOOTSTRAP OVERRIDES — LIST GROUPS ── */
+.list-group {
+    border-radius: var(--km-radius-lg);
+    overflow: hidden;
+}
+
+.list-group-item {
+    background-color: var(--km-surface);
+    border-color: var(--km-border);
+    color: var(--km-text);
+}
+
+.list-group-item-action:hover {
+    background-color: var(--km-surface-2);
+    color: var(--km-text);
+}
+
+.list-group-item-light {
+    background-color: var(--km-surface-2) !important;
+    color: var(--km-text-muted) !important;
+}
+
+/* ── BOOTSTRAP OVERRIDES — HERO JUMBOTRON ── */
+.bg-dark.rounded-3, .p-5.bg-dark {
+    background: linear-gradient(135deg, var(--km-surface) 0%, #1e1008 100%) !important;
+    border: 1px solid var(--km-border);
+}
+
+.display-5 {
+    font-family: var(--km-font-display);
+    font-weight: 700;
+}
+
+.display-4 {
+    font-family: var(--km-font-display);
+    font-weight: 700;
+    color: var(--km-accent);
+}
+
+.display-6 {
+    font-family: var(--km-font-display);
+    font-weight: 700;
+}
+
+/* ── BOOTSTRAP OVERRIDES — FOOTER ── */
+.footer, footer {
+    background-color: var(--km-surface) !important;
+    border-top: 1px solid var(--km-border);
+    color: var(--km-text-muted) !important;
+}
+
+.footer .text-muted, footer .text-muted {
+    color: var(--km-text-muted) !important;
+}
+
+/* ── BOOTSTRAP OVERRIDES — UTILITY COLOURS ── */
+.bg-white {
+    background-color: var(--km-surface) !important;
+}
+
+.bg-light {
+    background-color: var(--km-bg) !important;
+}
+
+.text-dark {
+    color: var(--km-text) !important;
+}
+
+.text-muted {
+    color: var(--km-text-muted) !important;
+}
+
+.text-primary {
+    color: var(--km-accent) !important;
+}
+
+.text-success {
+    color: var(--km-green) !important;
+}
+
+.text-warning {
+    color: var(--km-amber) !important;
+}
+
+.text-danger {
+    color: var(--km-red) !important;
+}
+
+.text-secondary {
+    color: var(--km-text-muted) !important;
+}
+
+.text-white {
+    color: var(--km-text) !important;
+}
+
+.border-danger {
+    border-color: var(--km-red) !important;
+}
+
+.border-primary {
+    border-color: var(--km-accent) !important;
+}
+
+.border-success {
+    border-color: var(--km-green) !important;
+}
+
+.border-top {
+    border-top-color: var(--km-border) !important;
+}
+
+.border-bottom {
+    border-bottom-color: var(--km-border) !important;
+}
+
+/* Stat cards on index: make the number bold and accented */
+.card .card-text.display-4 {
+    color: inherit;
+}
+
+.col-md-4:nth-child(1) .card .display-4 {
+    color: var(--km-blue);
+}
+
+.col-md-4:nth-child(2) .card .display-4 {
+    color: var(--km-green);
+}
+
+.col-md-4:nth-child(3) .card .display-4 {
+    color: var(--km-amber);
+}
+
+.card:hover {
+    border-color: rgba(232, 107, 46, 0.4) !important;
+    transform: translateY(-1px);
+    transition: all var(--km-transition);
+}
