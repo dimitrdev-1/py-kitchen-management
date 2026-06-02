@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Databases
+*.sqlite3
+**/*.sqlite3
+dump.json
+
+# Local development env variables
+.env
+db.sqlite3-journal
+
+# Media and Static deployment artifacts
+/staticfiles/
+/media/
+
+# OS files
+.DS_Store
+Thumbs.db

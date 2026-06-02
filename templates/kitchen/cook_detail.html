@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="bg-white border-0 shadow-sm rounded-3 form-card p-4 mb-4">
+    <h1 class="display-6 fw-bold text-dark mb-1">{{ cook.first_name }} {{ cook.last_name }}</h1>
+    <p class="text-muted fs-6 mb-3">Username: <span class="fw-semibold text-dark">@{{ cook.username }}</span> | Email: <span class="fw-semibold text-dark">{{ cook.email|default:"not specified" }}</span></p>
+    <div class="alert alert-info d-inline-block m-0 py-2 px-3 rounded-3 fw-medium">
+        Industry Experience: {{ cook.years_of_experience }} years
+    </div>
+</div>
+
+<h3 class="fw-bold text-dark mb-3">Assigned Culinary Processes</h3>
+<div class="row">
+    {% for dish in cook.dishes.all %}
+    <div class="col-md-4 mb-4">
+        <div class="card border-0 border-start border-4 border-success h-100 shadow-sm form-card rounded-3">
+            <div class="card-body p-4">
+                <h5 class="fw-bold mb-2"><a href="{% url 'kitchen:dish-detail' pk=dish.id %}" class="text-primary text-decoration-none">{{ dish.name }}</a></h5>
+                <span class="badge bg-secondary px-2 py-1 mb-3 fs-7">{{ dish.dish_type.name }}</span>
+                <p class="card-text text-truncate text-muted m-0">{{ dish.description }}</p>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <div class="alert alert-warning border-0 shadow-sm fw-medium">This cook is not currently assigned to any dishes.</div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

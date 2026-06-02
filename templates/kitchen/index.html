@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="p-5 mb-4 bg-dark text-white rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">Chef's Dashboard</h1>
+      <p class="col-md-8 fs-4">Welcome to the unified kitchen management system. Monitor dishes, track food categories,
+        and manage staff schedules seamlessly.</p>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm border-0 rounded-3">
+        <div class="card-body p-4">
+          <h5 class="card-title fw-bold text-secondary">Dish Types</h5>
+          <p class="card-text display-4 fw-bold text-primary my-3">{{ num_dish_types }}</p>
+          <a href="{% url 'kitchen:dish-type-list' %}" class="btn btn-outline-primary w-100 fw-semibold">Manage
+            Types</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm border-0 rounded-3">
+        <div class="card-body p-4">
+          <h5 class="card-title fw-bold text-secondary">Total Dishes</h5>
+          <p class="card-text display-4 fw-bold text-success my-3">{{ num_dishes }}</p>
+          <a href="{% url 'kitchen:dish-list' %}" class="btn btn-outline-success w-100 fw-semibold">View Menu</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm border-0 rounded-3">
+        <div class="card-body p-4">
+          <h5 class="card-title fw-bold text-secondary">Cooks on Duty</h5>
+          <p class="card-text display-4 fw-bold text-warning my-3">{{ num_cooks }}</p>
+          <a href="{% url 'kitchen:cook-list' %}" class="btn btn-outline-warning w-100 fw-semibold">View Team</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
